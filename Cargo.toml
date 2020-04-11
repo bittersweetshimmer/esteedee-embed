@@ -1,0 +1,12 @@
+[package]
+name = "esteedee-embed"
+version = "0.1.0"
+authors = ["bittersweetshimmer"]
+edition = "2018"
+repository = "https://github.com/bittersweetshimmer/esteedee-embed"
+description = "FUSE driver using MangaDex API."
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+clap = { git = "https://github.com/clap-rs/clap/" }
