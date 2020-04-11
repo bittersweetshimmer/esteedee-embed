@@ -47,10 +47,10 @@ fn main() -> Result<(), std::io::Error> {
     }
 
     if let Some(variable_name) = cli.value_of("variable_name") {
-        output_file.write(&format!("\tconstexpr std::array<char, {}> {} = {{\n\t", input_file.len(), variable_name).into_bytes())?;
+        output_file.write(&format!("\tconstexpr std::array<unsigned char, {}> {} = {{\n\t", input_file.len(), variable_name).into_bytes())?;
     }
     else {
-        output_file.write(&format!("\tconstexpr std::array<char, {}> {} = {{\n\t", input_file.len(), std::path::Path::new(&cli.value_of("input").unwrap().to_lowercase()).file_stem().unwrap().to_str().unwrap()).into_bytes())?;
+        output_file.write(&format!("\tconstexpr std::array<unsigned char, {}> {} = {{\n\t", input_file.len(), std::path::Path::new(&cli.value_of("input").unwrap().to_lowercase()).file_stem().unwrap().to_str().unwrap()).into_bytes())?;
     }
 
     for chunk in input_file.chunks(16) {
