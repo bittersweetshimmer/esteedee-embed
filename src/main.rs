@@ -1,5 +1,4 @@
 use clap;
-use std::fs::File;
 use std::io::prelude::*;
 
 fn main() -> Result<(), std::io::Error> {
@@ -52,17 +51,17 @@ fn main() -> Result<(), std::io::Error> {
     else {
         output_file.write(&format!("\tconstexpr std::array<unsigned char, {}> {} = {{\n\t", input_file.len(), std::path::Path::new(&cli.value_of("input").unwrap().to_lowercase()).file_stem().unwrap().to_str().unwrap()).into_bytes())?;
     }
-
+    
     for chunk in input_file.chunks(16) {
         for elem in chunk.iter() {
             output_file.write(&format!("\t0x{:02x},", elem).into_bytes())?;
         }
-        output_file.write(b"\n\t");
+        output_file.write(b"\n\t")?;
     }
 
     output_file.write(b"};\n")?;
 
-    if let Some(namespace) = cli.value_of("namespace") {
+    if let Some(_) = cli.value_of("namespace") {
         output_file.write(b"}")?;
     } 
 
