@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["bittersweetshimmer"]
 edition = "2018"
 repository = "https://github.com/bittersweetshimmer/esteedee-embed"
-description = "FUSE driver using MangaDex API."
+description = "Poor man's std::embed for C++."
 license = "MIT"
 readme = "README.md"
 
